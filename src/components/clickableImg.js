@@ -1,7 +1,7 @@
 const ClickableImgComponent = ()=>{
-    return ()=>{
+    return (
         <img src="logo192.png" className='clickable-image' alt="clickable-image"></img>
-    }
+    )
 }
 const addImageClickEffect = ()=>{
     const button = document.querySelector('.clickable-image');
