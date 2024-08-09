@@ -1,9 +1,9 @@
 //import logo from './logo.svg';
 import './App.css';
 import React, { Component } from 'react'; //different
-import HeaderComponent from './components/header';
-import MainContentComponent from './components/mainContent';
-import FooterComponent from './components/footer';
+import HeaderComponent from './components/Header';
+import MainContentComponent from './components/MainContent';
+import FooterComponent from './components/Footer';
 
 
 class App extends Component {

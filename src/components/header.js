@@ -1,4 +1,4 @@
-import NavComponent from "./navComponent";
+import NavComponent from "./Nav";
 
 const HeaderComponent = () => {
     //const header = document.querySelector("header.main-header");
