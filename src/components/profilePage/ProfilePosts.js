@@ -4,7 +4,7 @@ import classes from '../css/ProfilePosts.module.css'
 
 const ProfilePostsComponent = () => {
     return (
-        <section className={`${classes.posts}  ${"boxOfContent"}`}>
+        <section className={classNames(classes.posts, "boxOfContent")}>
             <h3 className={classes["section-name"]}>My Posts:</h3>
             <SendPostComponent />
             <ul className={classes["posts-list"]}>
@@ -36,13 +36,13 @@ const SendButtonComponent = ()=>{
     );
 }
 
-const PostItemComponent = ({text}) => {
+const PostItemComponent = (props) => {
     return (
         <li className={classes["post-item"]}>
             <div className={classes["avatar-post-container"]}>
                 <img className={classes["avatar-post"]} src={`${process.env.PUBLIC_URL}/img/profileIcon.webp`} alt="avatar" />
             </div>
-            <span className={classes["post-text"]}>{text}</span>
+            <span className={classes["post-text"]}>{props.text}</span>
         </li>
     );
 }

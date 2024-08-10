@@ -1,11 +1,11 @@
 import classes from '../css/Profile.module.css'
 import classNames from 'classnames';
 
-
+//`${classes["page-item"]}  ${"boxOfContent"}`
 const AsideNavComponent = () => {
     return (
         <aside className={classes["aside-nav"]}>
-            <ul className={`${classes["page-item"]}  ${"boxOfContent"}`}>
+            <ul className={classNames(classes["page-item"], "boxOfContent")}>
                 <li className={classes["page-item"]}>Profile</li>
                 <li className={classes["page-item"]}>Messages</li>
                 <li className={classes["page-item"]}>News</li>

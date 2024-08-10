@@ -1,28 +1,29 @@
 import classes from '../css/ProfileHeader.module.css'
+import classNames from 'classnames';
 
 const ProfileInfoComponent = () => {
     return (
-        <section className={`${classes["profile-info"]}  ${"boxOfContent"}`}>
+        <section className={classNames(classes["profile-info"],"boxOfContent")}>
             <ul className={classes["info-list"]} >
-                <li className={`${classes["info-list"]}  ${classes["name"]}`}>
+                <li className={classNames(classes["info-list"] ,classes["name"])}>
                     <span className={classes["info-type"]}>Name:</span>
                     <span className="name info">Jonh Doe</span>
                 </li>
-                <li className={`${classes["info-list"]}  ${classes["birth-date"]}`}>
+                <li className={classNames(classes["info-list"], classes["birth-date"])}>
                     <span className={classes["info-type"]}>Date of birth:</span>
-                    <span className={`${classes["info"]}  ${classes["birth-date"]}`}>12.10.1998</span>
+                    <span className={classNames(classes["info"],classes["birth-date"])}>12.10.1998</span>
                 </li>
-                <li className={`${classes["info-list"]}  ${classes["city-name"]}`}>
+                <li className={classNames(classes["info-list"], classes["city-name"])}>
                     <span className={classes["info-type"]}>City:</span>
-                    <span className={`${classes["info"]}  ${classes["city-name"]}`}>Azeroth</span>
+                    <span className={classNames(classes["info"], classes["city-name"])}>Azeroth</span>
                 </li>
-                <li className={`${classes["info-list"]}  ${classes["phone-number"]}`}>
+                <li className={classNames(classes["info-list"], classes["phone-number"])}>
                     <span className={classes["info-type"]}>Phone number:</span>
-                    <span className={`${classes["info"]}  ${classes["phone-number"]}`}>+79127347045</span>
+                    <span className={classNames(classes["info"], classes["phone-number"])}>+79127347045</span>
                 </li>
-                <li className={`${classes["info-list"]}  ${classes["email"]}`}>
+                <li className={classNames(classes["info-list"], classes["email"])}>
                     <span className={classes["info-type"]}>Email address:</span>
-                    <span className={`${classes["info"]}  ${classes["email"]}`}>abcd@gmail.com</span>
+                    <span className={classNames(classes["info"], classes["email"])}>abcd@gmail.com</span>
                 </li>
             </ul>
         </section>

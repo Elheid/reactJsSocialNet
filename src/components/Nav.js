@@ -4,7 +4,7 @@ const NavComponent = () => {
             <ul className="nav-list footer">
                 <li className="nav-item">Главная</li>
                 <li className="nav-item">Что-то ещё</li>
-                <li className="nav-item">Кликер</li>
+                {/*<li className="nav-item">Кликер</li>*/}
             </ul>
         </nav>)
 }
