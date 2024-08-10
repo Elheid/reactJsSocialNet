@@ -2,11 +2,14 @@ import ProfilePreviewComponent from "./ProfilePreview";
 import ProfileInfoComponent from "./ProfileInfo";
 import ProfileWallpaperComponent from "./ProfileWallpaper";
 
+import classes from '../css/ProfileHeader.module.css'
+
+
 const ProfileHeaderComponent = ()=>{
     return (
-        <section className="profile-header">
+        <section className={classes["profile-header"]}>
             <ProfileWallpaperComponent />
-            <div className="profile-description">
+            <div className={classes["profile-description"]}>
                 <ProfilePreviewComponent />
                 <ProfileInfoComponent />
             </div>

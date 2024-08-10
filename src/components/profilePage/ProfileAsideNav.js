@@ -1,13 +1,17 @@
+import classes from '../css/Profile.module.css'
+import classNames from 'classnames';
+
+
 const AsideNavComponent = () => {
     return (
-        <aside className="aside-nav">
-            <ul className="list-of-pages box-of-content">
-                <li className="page-item">Profile</li>
-                <li className="page-item">Messages</li>
-                <li className="page-item">News</li>
-                <li className="page-item">Music</li>
-                <li className="page-item">Settings</li>
-                <li className="page-item">Exit</li>
+        <aside className={classes["aside-nav"]}>
+            <ul className={`${classes["page-item"]}  ${"boxOfContent"}`}>
+                <li className={classes["page-item"]}>Profile</li>
+                <li className={classes["page-item"]}>Messages</li>
+                <li className={classes["page-item"]}>News</li>
+                <li className={classes["page-item"]}>Music</li>
+                <li className={classes["page-item"]}>Settings</li>
+                <li className={classes["page-item"]}>Exit</li>
             </ul>
         </aside>
     );

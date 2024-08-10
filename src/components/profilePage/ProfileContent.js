@@ -4,9 +4,11 @@ import ProfileWallpaperComponent from "./ProfileWallpaper";*/
 import ProfileHeaderComponent from "./ProfileHeader";
 import ProfilePostsComponent from "./ProfilePosts";
 
+import classes from '../css/Profile.module.css'
+
 const ProfileContentComponent = () => {
     return (
-        <section className="profile">
+        <section className={classes.profile}>
             <ProfileHeaderComponent/>
             <ProfilePostsComponent />
         </section>

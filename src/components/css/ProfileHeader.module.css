@@ -1,0 +1,73 @@
+/*Всё что связвно с ProfileHeader */
+
+section.profile-header {
+    height: auto;
+    display: contents;
+  }
+  
+  .profile-description {
+    height: fit-content;
+    display: flex;
+  }
+  
+  .profile-icon-container {
+    width: fit-content;
+  }
+  
+  
+  /*Всё что связвно с wallpaper */
+  .wallpaper-container{
+    grid-area: wallpaper;
+    /*height: 10vh;*/
+    max-height: 10vh;
+    height: 100%;
+  
+      margin-top: 10px;
+  }
+  
+  
+  .wallpaper{
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .profile-preview-container{
+    width: fit-content;
+  }
+  
+  /*Всё что связвно с ProfileIcon */
+  
+  h2.name.profile-name {
+    color: var(--text-h-color);
+  }
+  
+  .profile-icon{
+    width: 50%;
+  
+    margin: 10px;
+  
+    background-size: contain;
+    grid-area: icon;
+  }
+  
+  /*Всё что связвно с profileInfo */
+  
+  .profile-info{
+    grid-area: info;
+  }
+  
+  ul.info-list {
+    padding: 10px;
+  }
+  
+  
+  li.info-item {
+    width: fit-content;
+  }
+  
+  span.info-type {
+    font-weight: 500;
+  }

@@ -1,0 +1,57 @@
+/*Всё что связвно с posts */
+.posts{
+    grid-area: posts;
+    padding: 15px;
+    max-width: 80%;
+  }
+  
+  h3.section-name {
+    text-align: left;
+    font-weight: 300;
+    font-size: larger;
+  }
+  
+  .new-post {
+    width: fit-content;
+  }
+  
+  ul.posts-list {
+    overflow-y: auto;
+ 
+    /*display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;*/
+    display: grid;
+    justify-content: start;
+    gap:20px;
+  }
+  
+  li.post-item {
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    background: #ffffff;
+
+    background-color: var(--post-bg-color);
+    border-radius: 30px;
+  
+  }
+
+  .avatar-post-container{
+
+  }
+  
+ .avatar-post {
+    height: 5vh;
+    border-radius: 30px;
+    border: 1px solid black;
+  }
+  
+  span.post-text {
+    padding: 10px;
+  }
+  
+  

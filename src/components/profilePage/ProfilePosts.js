@@ -1,12 +1,13 @@
+import classNames from 'classnames';
+
+import classes from '../css/ProfilePosts.module.css'
+
 const ProfilePostsComponent = () => {
     return (
-        <section className="posts box-of-content">
-            <h3 className="section-name">My Posts:</h3>
-            <div className="new-post">
-                <textarea placeholder="text your post"></textarea>
-                <button className="send-post-button">Send</button>
-            </div>
-            <ul className="posts-list">
+        <section className={`${classes.posts}  ${"boxOfContent"}`}>
+            <h3 className={classes["section-name"]}>My Posts:</h3>
+            <SendPostComponent />
+            <ul className={classes["posts-list"]}>
                 <PostItemComponent text=":O"/>
                 <PostItemComponent text="Hello World!"/>
             </ul>
@@ -16,7 +17,7 @@ const ProfilePostsComponent = () => {
 
 const SendPostComponent =()=>{
     return (
-        <div className="new-post">
+        <div className={classes["new-post"]}>
         <SendTextareaComponent />
         <SendButtonComponent />
         </div>
@@ -31,17 +32,17 @@ const SendTextareaComponent = ()=>{
 
 const SendButtonComponent = ()=>{
     return (
-        <button className="send-post-button">Send</button>
+        <button className={classes["send-post-button"]}>Send</button>
     );
 }
 
 const PostItemComponent = ({text}) => {
     return (
-        <li className="post-item">
-            <div className="avatar-post-container">
-                <img src={`${process.env.PUBLIC_URL}/img/profileIcon.webp`} alt="avatar" className="avatar-post" />
+        <li className={classes["post-item"]}>
+            <div className={classes["avatar-post-container"]}>
+                <img className={classes["avatar-post"]} src={`${process.env.PUBLIC_URL}/img/profileIcon.webp`} alt="avatar" />
             </div>
-            <span className="post-text">{text}</span>
+            <span className={classes["post-text"]}>{text}</span>
         </li>
     );
 }
