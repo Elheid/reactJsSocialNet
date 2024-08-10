@@ -1,4 +1,4 @@
-import classes from '../css/ProfileHeader.module.css'
+import classes from '../../css/ProfileHeader.module.css'
 import classNames from 'classnames';
 
 const ProfileWallpaperComponent = ()=>{

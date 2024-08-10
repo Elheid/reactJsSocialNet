@@ -2,7 +2,8 @@ import ProfilePreviewComponent from "./ProfilePreview";
 import ProfileInfoComponent from "./ProfileInfo";
 import ProfileWallpaperComponent from "./ProfileWallpaper";
 
-import classes from '../css/ProfileHeader.module.css'
+//import classes from '../css/ProfileHeader.module.css'
+import classes from '../../css/ProfileHeader.module.css'
 import classNames from "classnames";
 
 

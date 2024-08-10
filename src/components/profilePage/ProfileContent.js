@@ -1,7 +1,7 @@
 /*import ProfileIconComponent from "./ProfileIcon";
 import ProfileInfoComponent from "./ProfileInfo";
 import ProfileWallpaperComponent from "./ProfileWallpaper";*/
-import ProfileHeaderComponent from "./ProfileHeader";
+import ProfileHeaderComponent from "./Header/ProfileHeader";
 import ProfilePostsComponent from "./ProfilePosts";
 
 import classes from '../css/Profile.module.css'
