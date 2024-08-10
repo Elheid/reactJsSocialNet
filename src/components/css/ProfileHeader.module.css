@@ -2,7 +2,7 @@
 
 section.profile-header {
     height: auto;
-    display: contents;
+    /*display: contents;*/
   }
   
   .profile-description {
@@ -21,8 +21,6 @@ section.profile-header {
     /*height: 10vh;*/
     max-height: 10vh;
     height: 100%;
-  
-      margin-top: 10px;
   }
   
   

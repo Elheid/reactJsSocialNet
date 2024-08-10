@@ -3,7 +3,7 @@ import classNames from 'classnames';
 
 const ProfileInfoComponent = () => {
     return (
-        <section className={classNames(classes["profile-info"],"boxOfContent")}>
+        <section className={classNames(classes["profile-info"],"boxOfContent", "inner-box")}>
             <ul className={classes["info-list"]} >
                 <li className={classNames(classes["info-list"] ,classes["name"])}>
                     <span className={classes["info-type"]}>Name:</span>

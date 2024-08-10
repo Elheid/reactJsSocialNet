@@ -38,7 +38,7 @@ const SendButtonComponent = ()=>{
 
 const PostItemComponent = (props) => {
     return (
-        <li className={classes["post-item"]}>
+        <li className={classNames(classes["post-item"])}>
             <div className={classes["avatar-post-container"]}>
                 <img className={classes["avatar-post"]} src={`${process.env.PUBLIC_URL}/img/profileIcon.webp`} alt="avatar" />
             </div>

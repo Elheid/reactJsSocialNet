@@ -156,6 +156,9 @@ span {
     background: var(--boxOfContent-bg-color);
 }
 
-
+.inner-box{
+  /*border: 5px #edf2f6 solid;*/
+  box-shadow: 0 0 8px 8px #edf2f6;
+}
 
 

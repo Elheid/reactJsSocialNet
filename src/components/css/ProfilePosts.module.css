@@ -2,7 +2,6 @@
 .posts{
     grid-area: posts;
     padding: 15px;
-    max-width: 80%;
   }
   
   h3.section-name {
