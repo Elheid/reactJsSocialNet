@@ -4,7 +4,7 @@ import ProfileWallpaperComponent from "./ProfileWallpaper";*/
 import ProfileHeaderComponent from "./Header/ProfileHeader";
 import ProfilePostsComponent from "./ProfilePosts";
 
-import classes from '../profileCss/Profile.module.css'
+import classes from './profileCss/Profile.module.css'
 
 const ProfileContentComponent = () => {
     return (

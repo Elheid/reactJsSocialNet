@@ -9,7 +9,9 @@ ul{
   list-style-type: none;
   padding: 0;
 }
-
+a{
+  text-decoration: none;
+}
 
 :root {
   --main-bg-color: #edf2f6;
@@ -101,7 +103,6 @@ li.nav-item {
   cursor: pointer;
 }
 li.nav-item a{
-  text-decoration: none;
   color: white;
 }
 

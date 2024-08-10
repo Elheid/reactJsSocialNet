@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 
-import classes from '../profileCss/ProfilePosts.module.css'
+import classes from './profileCss/ProfilePosts.module.css'
 
 const ProfilePostsComponent = () => {
     return (

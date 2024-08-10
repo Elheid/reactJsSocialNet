@@ -1,20 +1,30 @@
-import classes from '../profileCss/Profile.module.css'
+import classes from './profileCss/Profile.module.css'
 import classNames from 'classnames';
 
-//`${classes["page-item"]}  ${"boxOfContent"}`
+const LiNavComponent = (param)=>{
+    return (
+    <li className={classes["page-item"]}>
+        <a href="/" className="aside-nav-button">
+            <span className="name">{param.name}</span>
+        </a>
+    </li>
+    );
+}
+
+const listOfPagesNames = ["Profile", "Messages", "News", "Music", "Settings", "Exit"];
+const listOfPages = listOfPagesNames.map(name =>
+    <LiNavComponent name={name} />
+);
+
 const AsideNavComponent = () => {
     return (
         <aside className={classes["aside-nav"]}>
             <ul className={classNames(classes["page-item"], "boxOfContent")}>
-                <li className={classes["page-item"]}>Profile</li>
-                <li className={classes["page-item"]}>Messages</li>
-                <li className={classes["page-item"]}>News</li>
-                <li className={classes["page-item"]}>Music</li>
-                <li className={classes["page-item"]}>Settings</li>
-                <li className={classes["page-item"]}>Exit</li>
+                {listOfPages}
             </ul>
         </aside>
     );
 }
+
 
 export default AsideNavComponent;
