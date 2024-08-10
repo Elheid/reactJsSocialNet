@@ -1,7 +1,8 @@
 import classNames from 'classnames';
 
 import classes from './profileCss/ProfilePosts.module.css'
-import { idCreater } from '../../util';
+import Message from '../../classes/message';
+
 
 
 const SendPostComponent =()=>{
@@ -36,11 +37,14 @@ const PostItemComponent = (props) => {
     );
 }
 
+
 const postContentList = ["Hello World!", ":O", "3rd message !"];
 const listMessagesContent = postContentList.reverse();
 
-const listOfPosts = listMessagesContent.map((text, index) =>
-    <PostItemComponent key={index} text={text}/>
+const messages = Message.createMessages(listMessagesContent, ["", "", ""]);
+
+const listOfPosts = messages.map(({content}, index) =>
+    <PostItemComponent key={index} text={content}/>
 );
 
 const ProfilePostsComponent = () => {

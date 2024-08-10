@@ -1,24 +1,24 @@
 import classes from '../profileCss/ProfileHeader.module.css'
 import classNames from 'classnames';
 
-const classNamesList = [{name:"Name", classParam:"name", content:"Jonh Doe"}, 
-    {name:"Date of birth", classParam:"birth-date", content:"12.10.1998"},
-     {name:"City", classParam:"city-name", content:"Azeroth"}, 
-     {name:"Phone number", classParam:"phone-number", content:"+79127347045"}, 
-     {name:"Email address", classParam:"email", content:"abcd@gmail.com"}];
+const classNamesList = [{name:"Name", infoType:"name", content:"Jonh Doe"}, 
+    {name:"Date of birth", infoType:"birth-date", content:"12.10.1998"},
+     {name:"City", infoType:"city-name", content:"Azeroth"}, 
+     {name:"Phone number", infoType:"phone-number", content:"+79127347045"}, 
+     {name:"Email address", infoType:"email", content:"abcd@gmail.com"}];
 
 const LiProfileComponent = (param)=>{
 
     return (
-    <li className={classNames(classes["info-list"] ,classes[param.classParam])}>
-    <span className={classes["info-type"]}>{param.name}:</span>
-    <span className={classNames(param.classParam, 'info')}>{param.content}</span>
+    <li className={classNames(classes["info-list"] ,classes[param.infoType])}>
+    <span className={classes["info-infoType"]}>{param.name}:</span>
+    <span className={classNames(param.infoType, 'info')}>{param.content}</span>
     </li>
     );
 }
 
-const listOfPages = classNamesList.map(({classParam, name, content}, index) =>
-    <LiProfileComponent key={index} name={name} classParam={classParam} content={content} />
+const listOfPages = classNamesList.map(({infoType, name, content}, index) =>
+    <LiProfileComponent key={index} name={name} infoType={infoType} content={content} />
 );
 
 
