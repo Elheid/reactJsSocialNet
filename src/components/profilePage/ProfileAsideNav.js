@@ -12,8 +12,9 @@ const LiNavComponent = (param)=>{
 }
 
 const listOfPagesNames = ["Profile", "Messages", "News", "Music", "Settings", "Exit"];
-const listOfPages = listOfPagesNames.map(name =>
-    <LiNavComponent name={name} />
+
+const listOfPages = listOfPagesNames.map((name, index) =>
+    <LiNavComponent name={name} key={index} />
 );
 
 const AsideNavComponent = () => {

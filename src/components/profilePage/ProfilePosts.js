@@ -1,19 +1,8 @@
 import classNames from 'classnames';
 
 import classes from './profileCss/ProfilePosts.module.css'
+import { idCreater } from '../../util';
 
-const ProfilePostsComponent = () => {
-    return (
-        <section className={classNames(classes.posts, "boxOfContent")}>
-            <h3 className={classes["section-name"]}>My Posts:</h3>
-            <SendPostComponent />
-            <ul className={classes["posts-list"]}>
-                <PostItemComponent text=":O"/>
-                <PostItemComponent text="Hello World!"/>
-            </ul>
-        </section>
-    );
-}
 
 const SendPostComponent =()=>{
     return (
@@ -46,4 +35,26 @@ const PostItemComponent = (props) => {
         </li>
     );
 }
+
+const postContentList = ["Hello World!", ":O", "3rd message !"];
+const listMessagesContent = postContentList.reverse();
+
+const listOfPosts = listMessagesContent.map((text, index) =>
+    <PostItemComponent key={index} text={text}/>
+);
+
+const ProfilePostsComponent = () => {
+    return (
+        <section className={classNames(classes.posts, "boxOfContent")}>
+            <h3 className={classes["section-name"]}>My Posts:</h3>
+            <SendPostComponent />
+            <ul className={classes["posts-list"]}>
+                {listOfPosts}
+                {/*<PostItemComponent text=":O"/>
+                <PostItemComponent text="Hello World!"/>*/}
+            </ul>
+        </section>
+    );
+}
+
 export default ProfilePostsComponent;

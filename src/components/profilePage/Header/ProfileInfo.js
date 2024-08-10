@@ -17,8 +17,8 @@ const LiProfileComponent = (param)=>{
     );
 }
 
-const listOfPages = classNamesList.map(({classParam, name, content}) =>
-    <LiProfileComponent name={name} classParam={classParam} content={content} />
+const listOfPages = classNamesList.map(({classParam, name, content}, index) =>
+    <LiProfileComponent key={index} name={name} classParam={classParam} content={content} />
 );
 
 
