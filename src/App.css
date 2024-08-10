@@ -10,7 +10,6 @@ ul{
   padding: 0;
 }
 
-
 .wrapper{
   min-height: 100%;
   display: flex;
@@ -24,20 +23,10 @@ ul{
 .App-logo {
   pointer-events: none;
 }
-/*
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}*/
+
 
 .App-header {
   background-color: #282c34;
-  /*display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);*/
   color: white;
 }
 
@@ -55,7 +44,10 @@ ul{
 }
 
 .main-content{
-  background-color:#0f6287;
+  /*background-color:#0f6287;*/
+
+  background: #edf2f6;
+
   flex-grow: 1;
   height: 100%;
   min-height: 100vh;
@@ -132,9 +124,21 @@ li.nav-item:hover {
 }
 
 
+span {
+  color: #646a75;
+}
+
+.sticky-header{
+  position: sticky;
+  top: 0;
+}
+
 /*Тут будет всё связанное с соц сетью */
 
 /*Тут будет всё связанное с профилем */
+
+
+
 
 .profile-page { 
   flex-grow: 1;
@@ -143,19 +147,52 @@ li.nav-item:hover {
   /*height: 100%;*/
 
   display: grid; 
-  grid-template-columns:  10% 90%;  
-  background-color: #0f6287;
+  grid-template-columns: 1fr 10fr;
+  /*background: #edf2f6;*/
   grid-template-areas: 'aside profile';
 }
 
 li.page-item {
-  color: white;
-  padding: 5px;
+  color: rgb(0, 0, 0);
+  padding: 10px;
 }
 
 li.page-item:hover {
-  background-color: #1584b8;
+  /*background-color: #1584b8;*/
+  background-color:#edf2f6;
 }
+
+/*Всё что связвно с profile */
+.profile{
+  width: 100%;
+  height: 100%;
+
+  display: grid; 
+  grid-template-columns: 1fr 5fr;
+  grid-template-rows: 2fr 4fr 4fr;
+
+  grid-template-areas: 'wallpaper wallpaper' 
+                        'icon info' 
+                        'posts posts';
+
+
+  /*background: #edf2f6;*/
+
+}
+
+.box-of-content{
+margin: 10px;
+  border-radius: 5px 5px 0 0;
+  border: 1px white solid;
+  background: white;
+}
+
+/*Всё что связвно с wallpaper */
+.wallpaper-container{
+  grid-area: wallpaper;
+  /*height: 10vh;*/
+}
+
 
 .wallpaper{
   width: 100%;
@@ -166,23 +203,10 @@ li.page-item:hover {
   background-position: center;
 }
 
-.profile{
-  width: 100%;
-  height: 100%;
+/*Всё что связвно с ProfileIcon */
 
-  display: grid; 
-  grid-template-columns:  15% 85%;  
-  grid-template-rows: 20% 40% 40%; 
-  background-color: white; 
-  grid-template-areas: 'wallpaper wallpaper' 
-                        'icon info' 
-                        'posts posts';
-
-}
-
-.wallpaper-container{
-  grid-area: wallpaper;
-  /*height: 10vh;*/
+h2.name.profile-name {
+  color: #515365;
 }
 
 .profile-icon{
@@ -194,18 +218,37 @@ li.page-item:hover {
   grid-area: icon;
 }
 
+/*Всё что связвно с profileInfo */
+
 .profile-info{
   grid-area: info;
 }
+
+ul.info-list {
+  padding: 10px;
+}
+
 
 li.info-item {
   width: fit-content;
 }
 
+span.info-type {
+  font-weight: 500;
+}
+
+/*Всё что связвно с posts */
 .posts{
   grid-area: posts;
   padding: 15px;
 }
+
+h3.section-name {
+  text-align: left;
+  font-weight: 300;
+  font-size: larger;
+}
+
 
 .new-post {
   width: fit-content;
@@ -213,11 +256,30 @@ li.info-item {
 
 ul.posts-list {
   overflow-y: auto;
-  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
 }
 
 li.post-item {
   width: fit-content;
+  padding: 10px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  background: #ffffff;
+
+}
+
+
+img.avatar-post {
+  height: 5vh;
+  border-radius: 30px;
+  border: 1px solid black;
+}
+
+span.post-text {
   padding: 10px;
 }
 

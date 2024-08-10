@@ -1,9 +1,9 @@
-import ClickableImgComponent from "./ClickableImg";
-import ProfileComponent from "./Profile";
+//import ClickableImgComponent from "./ClickableImg";
+import ProfilePageComponent from "./profilePage/ProfileMainPage";
 const MainContentComponent = () => {
     return (
         <main className="main-content">
-        <ProfileComponent />
+        <ProfilePageComponent />
         </main>
     );
 }
