@@ -3,7 +3,7 @@ import ProfileInfoComponent from "./ProfileInfo";
 import ProfileWallpaperComponent from "./ProfileWallpaper";
 
 //import classes from '../css/ProfileHeader.module.css'
-import classes from '../../css/ProfileHeader.module.css'
+import classes from '../profileCss/ProfileHeader.module.css'
 import classNames from "classnames";
 
 

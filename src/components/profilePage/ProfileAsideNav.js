@@ -1,4 +1,4 @@
-import classes from '../css/Profile.module.css'
+import classes from '../profileCss/Profile.module.css'
 import classNames from 'classnames';
 
 //`${classes["page-item"]}  ${"boxOfContent"}`

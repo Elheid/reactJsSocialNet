@@ -1,0 +1,16 @@
+
+
+.clicker-res-counter{
+    margin-left: auto;
+    margin-right: auto;
+    font-size: larger;
+    width: fit-content;
+    padding: 20px;
+}
+
+.result-text{
+
+}
+.result-score{
+    padding: 5px;
+}
