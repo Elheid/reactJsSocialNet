@@ -1,16 +1,14 @@
-import ProfileIconComponent from "./ProfileIcon";
+/*import ProfileIconComponent from "./ProfileIcon";
 import ProfileInfoComponent from "./ProfileInfo";
+import ProfileWallpaperComponent from "./ProfileWallpaper";*/
+import ProfileHeaderComponent from "./ProfileHeader";
 import ProfilePostsComponent from "./ProfilePosts";
-import ProfileWallpaperComponent from "./ProfileWallpaper";
 
-
-const ProfileContentComponent = ()=>{
+const ProfileContentComponent = () => {
     return (
         <section className="profile">
-        <ProfileWallpaperComponent />
-        <ProfileIconComponent />
-        <ProfileInfoComponent />
-        <ProfilePostsComponent />
+            <ProfileHeaderComponent/>
+            <ProfilePostsComponent />
         </section>
     );
 }

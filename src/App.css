@@ -166,17 +166,18 @@ li.page-item:hover {
 .profile{
   width: 100%;
   height: 100%;
-
+/*
   display: grid; 
   grid-template-columns: 1fr 5fr;
   grid-template-rows: 2fr 4fr 4fr;
-
   grid-template-areas: 'wallpaper wallpaper' 
                         'icon info' 
                         'posts posts';
 
-
+*/
   /*background: #edf2f6;*/
+  display: flex;
+  flex-direction: column
 
 }
 
@@ -187,10 +188,31 @@ margin: 10px;
   background: white;
 }
 
+/*Всё что связвно с ProfileHeader */
+
+section.profile-header {
+  height: auto;
+  display: contents;
+}
+
+.profile-description {
+  height: fit-content;
+  display: flex;
+}
+
+.profile-icon-container {
+  width: fit-content;
+}
+
+
 /*Всё что связвно с wallpaper */
 .wallpaper-container{
   grid-area: wallpaper;
   /*height: 10vh;*/
+  max-height: 10vh;
+  height: 100%;
+
+    margin-top: 10px;
 }
 
 
@@ -203,6 +225,10 @@ margin: 10px;
   background-position: center;
 }
 
+.profile-preview-container{
+  width: fit-content;
+}
+
 /*Всё что связвно с ProfileIcon */
 
 h2.name.profile-name {
@@ -210,7 +236,7 @@ h2.name.profile-name {
 }
 
 .profile-icon{
-  width: 80%;
+  width: 50%;
 
   margin: 10px;
 
@@ -256,6 +282,7 @@ h3.section-name {
 
 ul.posts-list {
   overflow-y: auto;
+  overflow-x: clip;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -263,7 +290,7 @@ ul.posts-list {
 }
 
 li.post-item {
-  width: fit-content;
+  width: 100%;
   padding: 10px;
   display: flex;
   align-items: flex-start;
