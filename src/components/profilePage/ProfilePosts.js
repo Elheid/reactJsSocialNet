@@ -8,16 +8,34 @@ import Message from '../../classes/message';
 const SendPostComponent =()=>{
     return (
         <div className={classes["new-post"]}>
-        <SendTextareaComponent />
-        <SendButtonComponent />
+        {/*<SendTextareaComponent />
+        <SendButtonComponent />*/}
+        <SendPostCintComponent />
         </div>
     );
 }
 
 const SendTextareaComponent = ()=>{
     return (
-        <textarea placeholder="text your post"></textarea>
+        <textarea name="message-to-send" id="message-to-send" placeholder ="Type your message" rows="3"></textarea>
     );
+}
+const SendPostCintComponent = ()=>{
+    return (
+        <div className="chat-message clearfix">
+        <SendTextareaComponent />
+        <div className="icons">
+        <i className="fa fa-file-o"></i> &nbsp;&nbsp;&nbsp;
+        <i className="fa fa-file-image-o"></i>
+        </div>
+        
+        <SendButtonComponent />
+
+      </div>
+    );
+    /*return (
+        <textarea placeholder="text your post"></textarea>
+    );*/
 }
 
 const SendButtonComponent = ()=>{
@@ -26,22 +44,23 @@ const SendButtonComponent = ()=>{
     );
 }
 
-const PostItemComponent = (props) => {
+const postContentList = ["Hello World!", ":O", "3rd message !"];
+const listMessagesContent = postContentList.reverse();
+
+const messages = Message.createMessages(listMessagesContent);
+console.log(messages);
+
+
+const PostItemComponent = (props) => {//`${process.env.PUBLIC_URL}/img/profileIcon.webp`
     return (
         <li className={classNames(classes["post-item"])}>
             <div className={classes["avatar-post-container"]}>
-                <img className={classes["avatar-post"]} src={`${process.env.PUBLIC_URL}/img/profileIcon.webp`} alt="avatar" />
+                <img className={classes["avatar-post"]} src={messages[0].avatarImg} alt="avatar" />
             </div>
             <span className={classes["post-text"]}>{props.text}</span>
         </li>
     );
 }
-
-
-const postContentList = ["Hello World!", ":O", "3rd message !"];
-const listMessagesContent = postContentList.reverse();
-
-const messages = Message.createMessages(listMessagesContent, ["", "", ""]);
 
 const listOfPosts = messages.map(({content}, index) =>
     <PostItemComponent key={index} text={content}/>

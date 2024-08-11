@@ -17,4 +17,12 @@ const idCreater = () =>{
 };
 
 
-export {getRandomIntInRange, getRandomInt, idCreater}
+const camelCaseToTitleCase = (str) =>{
+    return str.replace(/([A-Z])/g, ' $1')
+             .trim()
+             .split(' ')
+             .map(word => word[0].toUpperCase() + word.slice(1).toLowerCase())
+             .join(' ');
+  }
+
+export {getRandomIntInRange, getRandomInt, idCreater, camelCaseToTitleCase}

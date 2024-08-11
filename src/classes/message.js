@@ -2,10 +2,16 @@ class Message {
     // Свойства (переменные)
     _content = '';
     _avatarImg = '';
+    _comments;
+
+    #defaulAvatarImg = `${process.env.PUBLIC_URL}/img/profileIcon.webp`;
+
     // Конструктор (инициализация объекта)
-    constructor(content, avatarImg) {
-        this.content = content;
-        this.avatarImg = avatarImg;
+    constructor(content, avatarImg = this.#defaulAvatarImg, comments=[]) {
+        this._content = content;
+        if (avatarImg === "") avatarImg = this.#defaulAvatarImg;
+        this._avatarImg = avatarImg;
+        this._comments = comments;
     }
 
 
@@ -18,21 +24,27 @@ class Message {
     }
 
     get avatarImg() { // Геттер
-        return this._content;
+        return this._avatarImg;
     }
 
     set avatarImg(value) { // Сеттер
         this._avatarImg = value;
     }
 
+    get comments() { // Геттер
+        return this._comments;
+    }
 
+    set comments(value) { // Сеттер
+        this._comments = value;
+    }
 
     // Методы (функции)
     sendMessage() {
         console.log('Метод send message');
     }
 
-    static createMessages(contentList, avatarList){
+    static createMessages(contentList, avatarList = Array(contentList.length).fill("")){
         if (contentList.length !== avatarList.length) {
             console.error("Ошибки в данных:  Количество сообщений и аватаров не совпадает");
             return [];
