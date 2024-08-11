@@ -185,7 +185,7 @@ span {
 
 /*Send post*/
 
-li.user {
+li.my-message {
   background: var(--green) !important;
   margin-left: 10%;
 }
@@ -265,7 +265,6 @@ li.other-message {
   margin-bottom: 10px;
   border-radius: 5px;
   resize: none;
-
 }
 
 .icons {

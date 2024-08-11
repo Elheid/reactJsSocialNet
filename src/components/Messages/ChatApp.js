@@ -22,7 +22,7 @@ function ChatApp() {
         if (newMessage.trim() !== '') {
             // Add user's message
             const message = new Message(newMessage);
-            const li = message.createMessageLi(messages.length);
+            const li = message.createMessageLi(messages.length, "my-message");
             
 
             setMessages([...messages, li]);
