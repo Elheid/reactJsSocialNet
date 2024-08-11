@@ -32,7 +32,6 @@
     display: flex;
     align-items: flex-start;
     gap: 10px;
-    background: #ffffff;
 
     background-color: var(--post-bg-color);
     border-radius: 30px;

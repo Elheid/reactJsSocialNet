@@ -185,6 +185,18 @@ span {
 
 /*Send post*/
 
+li.user {
+  background: var(--green) !important;
+  margin-left: 10%;
+}
+
+li.other-message {
+  margin-left: -10%;
+  background: var(--blue) !important;
+
+}
+
+
 @import url(https://fonts.googleapis.com/css?family=Lato:400,700);
 
 /*chat-message clearfix  fa fa-file-o  fa fa-file-image-o*/

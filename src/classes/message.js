@@ -47,10 +47,10 @@ class Message {
         console.log('Метод send message');
     }
 
-    createMessageLi(index){
+    createMessageLi(index, sender = "user"){
         //`${process.env.PUBLIC_URL}/img/profileIcon.webp`
         return (
-            <PostItemComponent key={index} text={this._content} avatarImg={this._avatarImg} />
+            <PostItemComponent key={index} text={this._content} avatarImg={this._avatarImg} sender={sender}/>
         );
     }
 

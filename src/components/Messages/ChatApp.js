@@ -1,5 +1,8 @@
-import classNames from 'classnames';
 import React, { useState, useEffect, useRef } from 'react';
+import classNames from 'classnames'; // You might need to install this: npm install classnames
+import Message from '../../classes/message';
+
+import classes from "./messages.module.css";
 
 function ChatApp() {
     const [messages, setMessages] = useState([]);
@@ -17,19 +20,24 @@ function ChatApp() {
 
     const addMessage = () => {
         if (newMessage.trim() !== '') {
-            setMessages([...messages, {
-                type: 'user',
-                content: newMessage,
-                time: getCurrentTime()
-            }]);
-            setNewMessage('');
+            // Add user's message
+            const message = new Message(newMessage);
+            const li = message.createMessageLi(messages.length);
+            
+
+            setMessages([...messages, li]);
+            console.log(messages);
+
+            // Send bot's reply after a delay
             setTimeout(() => {
-                setMessages([...messages, {
-                    type: 'bot',
-                    content: getRandomItem(messageResponses),
-                    time: getCurrentTime()
-                }]);
+                const botMessage = new Message(getRandomItem(messageResponses));
+                setMessages((prevMessages) => [
+                    ...prevMessages,
+                    botMessage.createMessageLi(prevMessages.length,"other-message")
+                ]); 
             }, 1500);
+
+            setNewMessage('');
         }
     };
 
@@ -50,7 +58,7 @@ function ChatApp() {
     };
 
     const getCurrentTime = () => {
-        return new Date().toLocaleTimeString().replace(/([\d]+:[\d]{2})(:[\d]{2})(.*)/, "$1$3");
+        return new Date().toLocaleTimeString().replace(/([d]+:[d]{2})(:[d]{2})(.*)/, "$1$3");
     };
 
     const getRandomItem = (arr) => {
@@ -58,18 +66,15 @@ function ChatApp() {
     };
 
     return (
-            <div className="chat-container">
-                <div className="chat-history" ref={chatHistoryRef}>
-                    <ul>
-                {messages.map((message, index) => (
-                    <li key={index} className={classNames(message, message.type)}>
-                        <p>{message.content}</p>
-                        <span className="time">{message.time}</span>
-                    </li>
-                ))}
+        <div className={classNames(classes["container"], classes["chat"], "inner-box", "boxOfContent")}> 
+            <div className={classes["chat-history"]} ref={chatHistoryRef}>
+                <ul className={classes["chat-message-list"]}>
+                    {messages.map((message, index) => (
+                        message // Используйте  message  как DOM-элемент 
+                    ))}
                 </ul>
             </div>
-            <div className="chat-input">
+            <div className={classes["chat-input"]}>
                 <input
                     type="text"
                     id="message-to-send"
@@ -84,3 +89,6 @@ function ChatApp() {
 }
 
 export default ChatApp;
+
+
+
