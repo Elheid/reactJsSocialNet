@@ -1,15 +1,18 @@
+import PostItemComponent from "../components/profilePage/ProfilePost";
+
+
 class Message {
     // Свойства (переменные)
     _content = '';
     _avatarImg = '';
     _comments;
 
-    #defaulAvatarImg = `${process.env.PUBLIC_URL}/img/profileIcon.webp`;
+    _defaulAvatarImg = `${process.env.PUBLIC_URL}/img/profileIcon.webp`;
 
     // Конструктор (инициализация объекта)
-    constructor(content, avatarImg = this.#defaulAvatarImg, comments=[]) {
+    constructor(content, avatarImg = `${process.env.PUBLIC_URL}/img/profileIcon.webp`, comments=[]) {
         this._content = content;
-        if (avatarImg === "") avatarImg = this.#defaulAvatarImg;
+        if (avatarImg === "") avatarImg = this._defaulAvatarImg;
         this._avatarImg = avatarImg;
         this._comments = comments;
     }
@@ -42,6 +45,13 @@ class Message {
     // Методы (функции)
     sendMessage() {
         console.log('Метод send message');
+    }
+
+    createMessageLi(index){
+        //`${process.env.PUBLIC_URL}/img/profileIcon.webp`
+        return (
+            <PostItemComponent key={index} text={this._content} avatarImg={this._avatarImg} />
+        );
     }
 
     static createMessages(contentList, avatarList = Array(contentList.length).fill("")){

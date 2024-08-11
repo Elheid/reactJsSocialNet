@@ -66,6 +66,10 @@ section.profile-header {
     width: fit-content;
   }
   
+  span.name.info {
+    padding: 5px;
+  }
+
   span.info-type {
     font-weight: 500;
   }

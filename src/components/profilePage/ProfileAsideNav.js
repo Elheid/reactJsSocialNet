@@ -4,7 +4,7 @@ import classNames from 'classnames';
 const LiNavComponent = (param)=>{
     return (
     <li className={classes["page-item"]}>
-        <a href="/" className="aside-nav-button">
+        <a href="/" className={classes["aside-nav-button"]}>
             <span className="name">{param.name}</span>
         </a>
     </li>

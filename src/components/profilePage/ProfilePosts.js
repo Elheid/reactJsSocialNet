@@ -2,80 +2,95 @@ import classNames from 'classnames';
 
 import classes from './profileCss/ProfilePosts.module.css'
 import Message from '../../classes/message';
+import { createContext, useContext, useState } from "react";
 
+const ListContext = createContext([]);
 
+const SendPostComponent = () => {
 
-const SendPostComponent =()=>{
     return (
         <div className={classes["new-post"]}>
-        {/*<SendTextareaComponent />
+            {/*<SendTextareaComponent />
         <SendButtonComponent />*/}
-        <SendPostCintComponent />
+            <SendPostContainerComponent />
+            {/*<MessageInput />*/}
         </div>
     );
 }
+/*validateDOMNesting(...): <li> cannot appear as a descendant of <li>. */
+const SendPostContainerComponent = () => {
+    const [newMessage, setNewMessage] = useState('');
+    const [items, setItems] = useContext(ListContext);
 
-const SendTextareaComponent = ()=>{
-    return (
-        <textarea name="message-to-send" id="message-to-send" placeholder ="Type your message" rows="3"></textarea>
-    );
-}
-const SendPostCintComponent = ()=>{
+    const addMessage = () => {
+        if (newMessage.trim() !== "") { // Проверяем, что введено не пустое сообщение
+            const message = new Message(newMessage);
+            const li = message.createMessageLi(items.length);
+            setItems([...items, li]);
+            setNewMessage(''); // Очищаем поле ввода
+        }
+    };
+
+    const handleKeyDown = (e) => {
+        if (e.key === 'Enter') {
+            addMessage();
+        }
+    };
+
     return (
         <div className="chat-message clearfix">
-        <SendTextareaComponent />
-        <div className="icons">
-        <i className="fa fa-file-o"></i> &nbsp;&nbsp;&nbsp;
-        <i className="fa fa-file-image-o"></i>
+            <textarea name="message-to-send" 
+            id="message-to-send"
+            rows="3"
+            value={newMessage}
+            onChange={(e) => setNewMessage(e.target.value)}
+            onKeyDown={handleKeyDown}
+            placeholder="Type your message">
+            </textarea>
+            <div className="icons">
+                <i className="fa fa-file-o"></i> &nbsp;&nbsp;&nbsp;
+                <i className="fa fa-file-image-o"></i>
+            </div>
+
+            <button className={classes["send-post-button"]}  onClick={addMessage} >Send</button>
+
         </div>
-        
-        <SendButtonComponent />
-
-      </div>
     );
-    /*return (
-        <textarea placeholder="text your post"></textarea>
-    );*/
 }
-
-const SendButtonComponent = ()=>{
+/*
+const SendButtonComponent = () => {
     return (
         <button className={classes["send-post-button"]}>Send</button>
     );
-}
+}*/
 
 const postContentList = ["Hello World!", ":O", "3rd message !"];
 const listMessagesContent = postContentList.reverse();
 
 const messages = Message.createMessages(listMessagesContent);
-console.log(messages);
 
 
-const PostItemComponent = (props) => {//`${process.env.PUBLIC_URL}/img/profileIcon.webp`
-    return (
-        <li className={classNames(classes["post-item"])}>
-            <div className={classes["avatar-post-container"]}>
-                <img className={classes["avatar-post"]} src={messages[0].avatarImg} alt="avatar" />
-            </div>
-            <span className={classes["post-text"]}>{props.text}</span>
-        </li>
-    );
-}
 
-const listOfPosts = messages.map(({content}, index) =>
-    <PostItemComponent key={index} text={content}/>
+
+const listOfPosts = messages.map((message, index) =>
+    message.createMessageLi(index)
 );
 
 const ProfilePostsComponent = () => {
+    const [items, setItems] = useState([]);
     return (
         <section className={classNames(classes.posts, "boxOfContent")}>
-            <h3 className={classes["section-name"]}>My Posts:</h3>
-            <SendPostComponent />
-            <ul className={classes["posts-list"]}>
-                {listOfPosts}
-                {/*<PostItemComponent text=":O"/>
-                <PostItemComponent text="Hello World!"/>*/}
-            </ul>
+            <ListContext.Provider value={[items, setItems]}>
+                <h3 className={classes["section-name"]}>My Posts:</h3>
+                <SendPostComponent />
+                <ul className={classes["posts-list"]}>
+                    {items.slice().reverse().map((item, index) => (
+                        //<li key={index}>{item}</li> // Рендерим каждый элемент
+                        item
+                    ))}
+                    {listOfPosts}
+                </ul>
+            </ListContext.Provider>
         </section>
     );
 }

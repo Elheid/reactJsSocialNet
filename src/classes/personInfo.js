@@ -1,4 +1,4 @@
-import LiProfileComponent from "../components/profilePage/Header/PersonInfoLi";
+import LiProfileComponent from "../components/profilePage/Header/ProfileInfoLi";
 import { camelCaseToTitleCase } from "../util";
 
 class PersonInfo {

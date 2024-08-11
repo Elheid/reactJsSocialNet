@@ -13,8 +13,15 @@
 
 li.page-item {
   color: var(--nav-aside-text-color);
+}
+
+a.aside-nav-button {
+  width: 100%;
+  height: auto;
+  display: block;
   padding: 10px;
 }
+
   /*aside nav items*/
   li.page-item:hover {
     /*background-color: #1584b8;*/
