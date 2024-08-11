@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import classNames from 'classnames'; // You might need to install this: npm install classnames
 import Message from '../../classes/message';
 
-import classes from "./messages.module.css";
+import classes from "./mainMessages.module.css";
 
 function ChatApp() {
     const [messages, setMessages] = useState([]);
@@ -23,7 +23,7 @@ function ChatApp() {
             // Add user's message
             const message = new Message(newMessage);
             const li = message.createMessageLi(messages.length, "my-message");
-            
+
 
             setMessages([...messages, li]);
             console.log(messages);
@@ -33,8 +33,8 @@ function ChatApp() {
                 const botMessage = new Message(getRandomItem(messageResponses));
                 setMessages((prevMessages) => [
                     ...prevMessages,
-                    botMessage.createMessageLi(prevMessages.length,"other-message")
-                ]); 
+                    botMessage.createMessageLi(prevMessages.length, "other-message")
+                ]);
             }, 1500);
 
             setNewMessage('');
@@ -66,7 +66,7 @@ function ChatApp() {
     };
 
     return (
-        <div className={classNames(classes["container"], classes["chat"], "inner-box", "boxOfContent")}> 
+        <div className={classNames(classes["container"], classes["chat"], "inner-box", "boxOfContent")}>
             <div className={classes["chat-history"]} ref={chatHistoryRef}>
                 <ul className={classes["chat-message-list"]}>
                     {messages.map((message, index) => (
@@ -75,14 +75,21 @@ function ChatApp() {
                 </ul>
             </div>
             <div className={classes["chat-input"]}>
-                <input
-                    type="text"
-                    id="message-to-send"
+                <textarea
+                    name="message-to-send"
+                    id={classes["message-to-send"]}
+                    rows="3"
                     value={newMessage}
                     onChange={(e) => setNewMessage(e.target.value)}
                     onKeyDown={handleKeyDown}
-                />
-                <button onClick={addMessage}>Send</button>
+                    placeholder="Type your message">
+                </textarea>
+                <div className={classes["icons"]}>
+                    <i className="fa fa-file-o"></i> &nbsp;&nbsp;&nbsp;
+                    <i className="fa fa-file-image-o"></i>
+                </div>
+
+                <button className={"send-button"} onClick={addMessage}>Send</button>
             </div>
         </div>
     );

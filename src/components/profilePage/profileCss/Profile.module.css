@@ -6,27 +6,11 @@
   /*height: 100%;*/
 
   display: grid; 
-  grid-template-columns: 1fr 10fr;
+  grid-template-columns: 1fr 9fr;
   /*background: #edf2f6;*/
   grid-template-areas: 'aside profile';
 }
 
-li.page-item {
-  color: var(--nav-aside-text-color);
-}
-
-a.aside-nav-button {
-  width: 100%;
-  height: auto;
-  display: block;
-  padding: 10px;
-}
-
-  /*aside nav items*/
-  li.page-item:hover {
-    /*background-color: #1584b8;*/
-    background-color:var(--nav-aside-hover);
-  }
 
 /*Всё что связвно с profile */
 
@@ -46,6 +30,13 @@ a.aside-nav-button {
     display: flex;
     flex-direction: column
   
+  }
+
+  .profile-container{
+    width: 100%;
+    max-width: 100vw;
+    display: flex;
+    flex-direction: row;
   }
   
 

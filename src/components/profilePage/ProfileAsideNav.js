@@ -4,8 +4,8 @@ import classNames from 'classnames';
 const LiNavComponent = (param)=>{
     const link = `/${param.name}`
     return (
-    <li className={classes["page-item"]}>
-        <a href={link} className={classes["aside-nav-button"]}>
+    <li className={"page-item"}>
+        <a href={link} className={"aside-nav-button"}>
             <span className="name">{param.name}</span>
         </a>
     </li>
@@ -20,8 +20,8 @@ const listOfPages = listOfPagesNames.map((name, index) =>
 
 const AsideNavComponent = () => {
     return (
-        <aside className={classes["aside-nav"]}>
-            <ul className={classNames(classes["page-item"], "boxOfContent")}>
+        <aside className={"aside-nav"}>
+            <ul className={classNames("page-item", "boxOfContent")}>
                 {listOfPages}
             </ul>
         </aside>

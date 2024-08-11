@@ -50,19 +50,6 @@
   
   span.post-text {
     padding: 10px;
+    overflow-wrap: anywhere;
   }
   
-  .send-post-button {
-    float: right;
-    color: var(--blue);
-    font-size: 16px;
-    text-transform: uppercase;
-    border: none;
-    cursor: pointer;
-    font-weight: bold;
-    background: #F2F5F8;
-  
-  }
-  .send-post-button:hover {
-    color: #75b1e8;
-}

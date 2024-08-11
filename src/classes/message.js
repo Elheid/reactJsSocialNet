@@ -7,12 +7,12 @@ class Message {
     _avatarImg = '';
     _comments;
 
-    _defaulAvatarImg = `${process.env.PUBLIC_URL}/img/profileIcon.webp`;
+    static _defaulAvatarImg = `${process.env.PUBLIC_URL}/img/profileIcon.webp`;
 
     // Конструктор (инициализация объекта)
-    constructor(content, avatarImg = `${process.env.PUBLIC_URL}/img/profileIcon.webp`, comments=[]) {
+    constructor(content, avatarImg = `${process.env.PUBLIC_URL}/img/profileIcon.webp`, comments = []) {
         this._content = content;
-        if (avatarImg === "") avatarImg = this._defaulAvatarImg;
+        if (avatarImg === "") avatarImg = `${process.env.PUBLIC_URL}/img/profileIcon.webp`;
         this._avatarImg = avatarImg;
         this._comments = comments;
     }
@@ -47,24 +47,24 @@ class Message {
         console.log('Метод send message');
     }
 
-    createMessageLi(index, sender = "user"){
+    createMessageLi(index, sender = "user") {
         //`${process.env.PUBLIC_URL}/img/profileIcon.webp`
         return (
-            <PostItemComponent key={index} text={this._content} avatarImg={this._avatarImg} sender={sender}/>
+            <PostItemComponent key={index} text={this._content} avatarImg={this._avatarImg} sender={sender} />
         );
     }
 
-    static createMessages(contentList, avatarList = Array(contentList.length).fill("")){
+    static createMessages(contentList, avatarList = Array(contentList.length).fill("")) {
         if (contentList.length !== avatarList.length) {
             console.error("Ошибки в данных:  Количество сообщений и аватаров не совпадает");
             return [];
-          }
-      
-          // Создание массива объектов Message
-          const messages = contentList.map((content, index) => {
+        }
+
+        // Создание массива объектов Message
+        const messages = contentList.map((content, index) => {
             return new Message(content, avatarList[index]);
-          });
-          return messages;
+        });
+        return messages;
     }
 }
 

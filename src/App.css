@@ -158,7 +158,9 @@ li.nav-item a:hover {
 }
 
 
-span {
+span,
+div,
+input {
   color: var(--text-span-color);
 }
 
@@ -185,21 +187,44 @@ span {
 
 /*Send post*/
 
+li.my-message,
+li.other-message {
+  width: 80% !important;
+  padding: 10px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  background-color: var(--post-bg-color);
+  border-radius: 30px;
+}
+
 li.my-message {
   background: var(--green) !important;
-  margin-left: 10%;
+  /*margin-left: 5vw !important;*/
+  align-self: flex-end;
 }
 
 li.other-message {
-  margin-left: -10%;
-  background: var(--blue) !important;
+  margin-right: 5vw !important;
+  align-self: flex-start;
 
+  /*background: var(--blue) !important;*/
 }
 
 
 @import url(https://fonts.googleapis.com/css?family=Lato:400,700);
 
 /*chat-message clearfix  fa fa-file-o  fa fa-file-image-o*/
+
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+
 *,
 *:before,
 *:after {
@@ -222,7 +247,7 @@ li.other-message {
 
 
 .chat-message {
-  padding: 30px;
+  padding: 20px;
   background: var(--post-bg-color);
   border-radius: 30px;
 }
@@ -269,4 +294,82 @@ li.other-message {
 
 .icons {
   width: fit-content;
+}
+
+.send-button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  margin-left: auto;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+}
+
+.send-button:hover {
+  background-color: #45a049;
+}
+
+
+li.page-item {
+  color: var(--nav-aside-text-color);
+}
+
+a.aside-nav-button {
+  width: 100%;
+  height: auto;
+  display: block;
+  padding: 10px;
+}
+
+/*aside nav items*/
+li.page-item:hover {
+  /*background-color: #1584b8;*/
+  background-color: var(--nav-aside-hover);
+}
+
+.aside-nav {
+  grid-area: aside;
+}
+
+/*fixed aside message bar*/
+
+.fixed-sidebar {
+  position: fixed;
+  z-index: 22;
+  width: 70px;
+  min-height: 1000vh;
+  left: 0;
+  background: white;
+  border-radius: 20px;
+}
+
+.fixed-sidebar.right {
+  top: 70px;
+  z-index: 20;
+  right: 0;
+  left: auto;
+  min-height: 100%;
+}
+
+.profile-completion .skills-item-info {
+  font-size: 14px;
+}
+
+.chat-users {
+  margin-bottom: 0;
+}
+
+.chat-users li {
+  padding: 13px 20px;
+  cursor: pointer;
+}
+
+.chat-users .author-thumb {
+  margin-right: 8px;
+  width: 34px;
+  height: 34px;
 }

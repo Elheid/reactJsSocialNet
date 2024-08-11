@@ -10,14 +10,10 @@ const SendPostComponent = () => {
 
     return (
         <div className={classes["new-post"]}>
-            {/*<SendTextareaComponent />
-        <SendButtonComponent />*/}
             <SendPostContainerComponent />
-            {/*<MessageInput />*/}
         </div>
     );
 }
-/*validateDOMNesting(...): <li> cannot appear as a descendant of <li>. */
 const SendPostContainerComponent = () => {
     const [newMessage, setNewMessage] = useState('');
     const [items, setItems] = useContext(ListContext);
@@ -52,7 +48,7 @@ const SendPostContainerComponent = () => {
                 <i className="fa fa-file-image-o"></i>
             </div>
 
-            <button className={classes["send-post-button"]}  onClick={addMessage} >Send</button>
+            <button className={"send-button"}  onClick={addMessage} >Send</button>
 
         </div>
     );
