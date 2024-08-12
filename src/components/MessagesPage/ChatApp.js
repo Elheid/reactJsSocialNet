@@ -3,6 +3,7 @@ import classNames from 'classnames'; // You might need to install this: npm inst
 import Message from '../../classes/message';
 
 import classes from "./messagesCss/mainMessages.module.css";
+import SendMessageBoxComponent from '../SendMessage.js';
 
 function ChatApp() {
     const [messages, setMessages] = useState([]);
@@ -26,8 +27,8 @@ function ChatApp() {
 
 
             setMessages([...messages, li]);
-            console.log(messages);
-
+            console.log(newMessage);
+            setNewMessage('');
             // Send bot's reply after a delay
             setTimeout(() => {
                 const botMessage = new Message(getRandomItem(messageResponses));
@@ -36,16 +37,14 @@ function ChatApp() {
                     botMessage.createMessageLi(prevMessages.length, "other-message")
                 ]);
             }, 1500);
-
-            setNewMessage('');
         }
     };
-
+/*
     const handleKeyDown = (e) => {
         if (e.key === 'Enter') {
             addMessage();
         }
-    };
+    };*/
 
     useEffect(() => {
         scrollToBottom();
@@ -65,6 +64,7 @@ function ChatApp() {
         return arr[Math.floor(Math.random() * arr.length)];
     };
 
+
     return (
         <div className={classNames(classes["container"], classes["chat"], "inner-box", "boxOfContent")}>
             <div className={classes["chat-history"]} ref={chatHistoryRef}>
@@ -74,23 +74,22 @@ function ChatApp() {
                     ))}
                 </ul>
             </div>
-            <div className={classes["chat-input"]}>
-                <textarea
-                    name="message-to-send"
-                    id={classes["message-to-send"]}
-                    rows="3"
-                    value={newMessage}
-                    onChange={(e) => setNewMessage(e.target.value)}
-                    onKeyDown={handleKeyDown}
-                    placeholder="Type your message">
-                </textarea>
-                <div className={classes["icons"]}>
-                    <i className="fa fa-file-o"></i> &nbsp;&nbsp;&nbsp;
-                    <i className="fa fa-file-image-o"></i>
-                </div>
-
-                <button className={"send-button"} onClick={addMessage}>Send</button>
-            </div>
+            <SendMessageBoxComponent
+            classes={classes} 
+            newMessage={newMessage}
+            setNewMessage={setNewMessage}
+            //handleKeyDown={handleKeyDown} 
+            addMessage={addMessage}  />
+            {/*SendMessageBoxComponent(
+                {
+                    classes, 
+                    newMessage, 
+                    setNewMessage, 
+                    handleKeyDown, 
+                    addMessage
+                }
+                )*/}
+        
         </div>
     );
 }

@@ -3,17 +3,43 @@ import classNames from 'classnames';
 import classes from './profileCss/ProfilePosts.module.css'
 import Message from '../../classes/message';
 import { createContext, useContext, useState } from "react";
+import SendMessageBoxComponent from '../SendMessage';
 
 const ListContext = createContext([]);
 
 const SendPostComponent = () => {
+    const [newMessage, setNewMessage] = useState('');
+    const [items, setItems] = useContext(ListContext);
+
+    const addMessage = () => {
+        if (newMessage.trim() !== "") { // Проверяем, что введено не пустое сообщение
+            const message = new Message(newMessage);
+            const li = message.createMessageLi(items.length);
+            setItems([...items, li]);
+            setNewMessage(''); // Очищаем поле ввода
+        }
+    };
+/*
+    const handleKeyDown = (e) => {
+        if (e.key === 'Enter') {
+            addMessage();
+        }
+    };*/
+
 
     return (
         <div className={classes["new-post"]}>
-            <SendPostContainerComponent />
+            {/*<SendPostContainerComponent />*/}
+            <SendMessageBoxComponent
+            classes={classes} 
+            newMessage={newMessage}
+            setNewMessage={setNewMessage}
+            //handleKeyDown={handleKeyDown} 
+            addMessage={addMessage}  />
         </div>
     );
 }
+/*
 const SendPostContainerComponent = () => {
     const [newMessage, setNewMessage] = useState('');
     const [items, setItems] = useContext(ListContext);
@@ -52,7 +78,7 @@ const SendPostContainerComponent = () => {
 
         </div>
     );
-}
+}*/
 /*
 const SendButtonComponent = () => {
     return (
