@@ -1,7 +1,7 @@
 
 import {MainClickerComponent} from "./clicker/MainClicker";
-import MainMessagesComponent from "./Messages/MessangesMain";
-import ProfilePageComponent from "./profilePage/ProfileMainPage";
+import MainMessagesComponent from "./MessagesPage/MessangesMain";
+import ProfilePageComponent from "./ProfilePage/ProfileMainPage";
 const MainContentComponent = () => {
     const path = window.location.pathname;
     let mainPage = <ProfilePageComponent />;

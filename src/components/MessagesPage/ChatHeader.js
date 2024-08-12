@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import classes from "./mainMessages.module.css";
+import classes from "./messagesCss/mainMessages.module.css";
 import Message from '../../classes/message';
 
 const ChatHeaderComponent = () => {

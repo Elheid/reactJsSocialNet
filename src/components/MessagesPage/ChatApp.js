@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import classNames from 'classnames'; // You might need to install this: npm install classnames
 import Message from '../../classes/message';
 
-import classes from "./mainMessages.module.css";
+import classes from "./messagesCss/mainMessages.module.css";
 
 function ChatApp() {
     const [messages, setMessages] = useState([]);
@@ -57,9 +57,9 @@ function ChatApp() {
         }
     };
 
-    const getCurrentTime = () => {
+   /* const getCurrentTime = () => {
         return new Date().toLocaleTimeString().replace(/([d]+:[d]{2})(:[d]{2})(.*)/, "$1$3");
-    };
+    };*/
 
     const getRandomItem = (arr) => {
         return arr[Math.floor(Math.random() * arr.length)];

@@ -1,4 +1,4 @@
-import PostItemComponent from "../components/profilePage/ProfilePost";
+import PostItemComponent from "../components/ProfilePage/ProfilePost";
 
 
 class Message {

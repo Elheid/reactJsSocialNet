@@ -1,8 +1,8 @@
-import AsideNavComponent from "../profilePage/ProfileAsideNav";
+import AsideNavComponent from "../ProfilePage/ProfileAsideNav";
 import ChatApp from "./ChatApp";
 import ChatHeaderComponent from "./ChatHeader";
 import MessageContactsComponent from "./Contacts";
-import classes from "./mainMessages.module.css";
+import classes from "./messagesCss/mainMessages.module.css";
 
 const MainMessagesComponent = ()=>{
     return (

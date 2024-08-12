@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import Message from "../../classes/message";
-import classes from "./mainMessages.module.css";
+import classes from "./messagesCss/mainMessages.module.css";
 const MessageContactsComponent = () => {
     return (
         <div className={classNames(classes["people-list"], "box-of-content")} id="people-list">

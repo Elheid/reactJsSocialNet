@@ -1,4 +1,4 @@
-import classes from './profileCss/Profile.module.css'
+//import classes from './profileCss/Profile.module.css'
 import classNames from 'classnames';
 
 const LiNavComponent = (param)=>{
