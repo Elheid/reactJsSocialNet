@@ -6,11 +6,11 @@
     /*height: 100%;*/
 
     display: grid;
-    grid-template-columns: 1fr 3fr 6fr;
+    grid-template-columns:  4fr 6fr;
     grid-template-rows: 2fr 7fr;
     /*background: #edf2f6;*/
-    grid-template-areas:'aside contacts header'
-                        'aside contacts  messages';
+    grid-template-areas:' contacts header'
+                        ' contacts  messages';
 }
 
 
@@ -43,6 +43,10 @@ grid-area: aside;
 
 
 /*People list contacts */
+
+.nav-contacts{
+    width: 100%;
+}
 
 .contact-list{
 
@@ -193,7 +197,7 @@ grid-area: aside;
 }
 
 
-.chat-num-messages {
+.chat-last-seen {
     color: var(--gray);
 }
 

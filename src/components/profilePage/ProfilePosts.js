@@ -11,6 +11,7 @@ const SendPostComponent = () => {
     const [newMessage, setNewMessage] = useState('');
     const [items, setItems] = useContext(ListContext);
 
+
     const addMessage = () => {
         if (newMessage.trim() !== "") { // Проверяем, что введено не пустое сообщение
             const message = new Message(newMessage);

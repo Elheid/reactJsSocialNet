@@ -1,20 +1,27 @@
 import PostItemComponent from "../components/ProfilePage/ProfilePost";
 
 
+class MessageType{
+    static user = "my-message";
+    static other = "other-message";
+}
+
 class Message {
     // Свойства (переменные)
     _content = '';
+    _sender = '';
     _avatarImg = '';
     _comments;
 
     static _defaulAvatarImg = `${process.env.PUBLIC_URL}/img/profileIcon.webp`;
 
     // Конструктор (инициализация объекта)
-    constructor(content, avatarImg = `${process.env.PUBLIC_URL}/img/profileIcon.webp`, comments = []) {
+    constructor(content, sender = MessageType.user, avatarImg = `${process.env.PUBLIC_URL}/img/profileIcon.webp`, comments = []) {
         this._content = content;
         if (avatarImg === "") avatarImg = `${process.env.PUBLIC_URL}/img/profileIcon.webp`;
         this._avatarImg = avatarImg;
         this._comments = comments;
+        this._sender = sender;
     }
 
 
@@ -42,6 +49,15 @@ class Message {
         this._comments = value;
     }
 
+    get type() { // Геттер
+        return this._sender;
+    }
+
+    set type(value) { // Сеттер
+        this._sender = value;
+    }
+
+
     // Методы (функции)
     sendMessage() {
         console.log('Метод send message');
@@ -54,7 +70,7 @@ class Message {
         );
     }
 
-    static createMessages(contentList, avatarList = Array(contentList.length).fill("")) {
+    static createMessages(contentList, typesList = Array(contentList.length).fill(""), avatarList = Array(contentList.length).fill(""), ) {
         if (contentList.length !== avatarList.length) {
             console.error("Ошибки в данных:  Количество сообщений и аватаров не совпадает");
             return [];
@@ -62,7 +78,7 @@ class Message {
 
         // Создание массива объектов Message
         const messages = contentList.map((content, index) => {
-            return new Message(content, avatarList[index]);
+            return new Message(content, typesList[index], avatarList[index]);
         });
         return messages;
     }

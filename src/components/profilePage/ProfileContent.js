@@ -37,7 +37,7 @@ const ProfileContentComponent = () => {
 const MessageSideBarComponent = () => {
     const avatar = Message._defaulAvatarImg;
     return (
-        <div className="fixed-sidebar right boxOfContent inner-box">
+        <div className="fixed-sidebar right boxOfContent">
             <div className="fixed-sidebar-right sidebar--small" id="sidebar-right">
                 <div className="mCustomScrollbar ps ps--theme_default" data-mcs-theme="dark" data-ps-id="c4badb1f-c053-ead8-4269-d80e5fe1ccf6">
                     <ul className="chat-users">

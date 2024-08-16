@@ -313,6 +313,10 @@ li.other-message {
   background-color: #45a049;
 }
 
+.aside-nav{
+  width: 10vw;
+}
+
 
 li.page-item {
   color: var(--nav-aside-text-color);

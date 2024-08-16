@@ -1,12 +1,15 @@
+import { Link, NavLink } from "react-router-dom";
+
 const NavComponent = () => {
     return (
         <nav className="footer-nav">
             <ul className="nav-list footer">
+                <Link to={"/"}></Link>
                 <li className="nav-item">
-                   <a href="/Profile">Главная</a>
+                    <NavLink to="/Profile">Главная</NavLink>
                 </li>
                 <li className="nav-item">
-                <a href="/">Что-то ещё</a>
+                    <NavLink to="/">Что-то ещё</NavLink>
                 </li>
                 {/*<li className="nav-item">Кликер</li>*/}
             </ul>
