@@ -11,17 +11,19 @@ class Message {
     _content = '';
     _sender = '';
     _avatarImg = '';
+    _timeSended;
     _comments;
 
     static _defaulAvatarImg = `${process.env.PUBLIC_URL}/img/profileIcon.webp`;
 
     // Конструктор (инициализация объекта)
-    constructor(content, sender = MessageType.user, avatarImg = `${process.env.PUBLIC_URL}/img/profileIcon.webp`, comments = []) {
+    constructor(content, sender = MessageType.user, timeSended = null, avatarImg = `${process.env.PUBLIC_URL}/img/profileIcon.webp`, comments = []) {
         this._content = content;
         if (avatarImg === "") avatarImg = `${process.env.PUBLIC_URL}/img/profileIcon.webp`;
         this._avatarImg = avatarImg;
         this._comments = comments;
         this._sender = sender;
+        this._timeSended = timeSended;
     }
 
 
@@ -57,16 +59,27 @@ class Message {
         this._sender = value;
     }
 
+    get timeSended() { // Геттер
+        return this._timeSended;
+    }
+
+    set timeSended(value) { // Сеттер
+        this._timeSended = value;
+    }
+
+
 
     // Методы (функции)
     sendMessage() {
         console.log('Метод send message');
     }
 
-    createMessageLi(index, sender = "user") {
+    createMessageLi(index) {
+        let sender = this._sender;
+        if (!this._sender) sender = "user";
         //`${process.env.PUBLIC_URL}/img/profileIcon.webp`
         return (
-            <PostItemComponent key={index} text={this._content} avatarImg={this._avatarImg} sender={sender} />
+            <PostItemComponent key={index} text={this._content} avatarImg={this._avatarImg} sender={sender} timeSended={this._timeSended}/>
         );
     }
 

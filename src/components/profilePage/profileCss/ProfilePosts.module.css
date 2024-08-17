@@ -51,5 +51,15 @@
   span.post-text {
     padding: 10px;
     overflow-wrap: anywhere;
+    max-width: 60%;
+    text-align: justify;
+  }
+
+  .post-time{
+    font-weight: 100;
+    opacity: 0.5;
+    margin-top: auto;
+    margin-left: auto;
+    padding: 5px;
   }
   

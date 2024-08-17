@@ -4,7 +4,6 @@ import Message from '../../classes/message';
 
 const usersNames = [{id:0, name:"Max"}, {id:1, name:"Andrew"}, {id:2, name:"Ann"}, {id:3, name:"Marry"}]
 const ChatHeaderComponent = (param) => {
-    debugger
     const chatName = usersNames.filter((obj)=> Number(param.userId) === obj.id)[0].name;
     return (
         <div className={classNames(classes["chat-header"], "clearfix", "box-of-content")}>
